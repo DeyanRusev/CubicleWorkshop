@@ -1,15 +1,20 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
-const path = require('path');
+// const handlebars = require('express-handlebars');
+// const path = require('path');
 
 const expressConfig = require('./config/expressConfig');
 const handlebarsConfig = require('./config/handlebarConfig');
+const homeController = require('./controllers/homeController');
+const cubeController = require('./controllers/cubeController');
 
 const app = express();
 const port = 5000;
 
 expressConfig(app);
 handlebarsConfig(app);
+
+app.use(homeController);
+app.use('/cubes', cubeController);
 
 
 app.get('/', (req, res) => {
