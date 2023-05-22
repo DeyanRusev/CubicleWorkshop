@@ -1,4 +1,5 @@
 const uniqid = require('uniqid');
+// const db = require('../db.json');
 
 const cubes = [];
 
@@ -11,6 +12,8 @@ exports.create = (cubeData) => {
         ...cubeData,
     }
     cubes.push(newCube);
+
+
 
     return newCube;
 }
