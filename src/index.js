@@ -1,6 +1,4 @@
 const express = require('express');
-// const handlebars = require('express-handlebars');
-// const path = require('path');
 
 const expressConfig = require('./config/expressConfig');
 const handlebarsConfig = require('./config/handlebarConfig');
@@ -16,10 +14,15 @@ handlebarsConfig(app);
 app.use(homeController);
 app.use('/cubes', cubeController);
 
+app.get('*', (req, res) =>{
 
-app.get('/', (req, res) => {
-    res.render('index');
+    res.redirect('/404')
 })
+
+
+// app.get('/', (req, res) => {
+//     res.render('index');
+// })
 
 app.listen(port, ()=>{
     console.log(`Server is listening on port: ${port}...`)
